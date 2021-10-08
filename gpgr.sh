@@ -7,11 +7,11 @@ command=$1
 function help {
     echo "Usage: gpgr <command> <options>"
     echo "Supported Commands: "
-    echo -e "\t encrypt \t\t <receiver> <filename> \t -- Encrypt file to send"
-    echo -e "\t decrypt \t\t <filename> \t\t -- Decrypt file from trusted sender"
-    echo -e "\t import \t\t <filename> \t\t -- Import a trusted user's public key"
-    echo -e "\t export \t\t <name> \t\t -- Export public key of user"
-    echo -e "\t fingerprint \t <name> \t\t -- Show fingerprint for user"
+    echo -e "    encrypt      <receiver> <filename>  -- Encrypt file to send"
+    echo -e "    decrypt      <filename>             -- Decrypt file from trusted sender"
+    echo -e "    import       <filename>             -- Import a trusted user's public key"
+    echo -e "    export       <name>                 -- Export public key of user"
+    echo -e "    fingerprint  <name>                 -- Show fingerprint for user"
 }
 
 gpg_encrypt_help() {
