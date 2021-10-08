@@ -1,5 +1,7 @@
 #!/bin/bash
-
+#
+# GPG-Reduce
+#
 command=$1
 
 function help {
@@ -12,10 +14,10 @@ function help {
     echo -e "\t fingerprint \t <name> \t\t -- Show fingerprint for user"
 }
 
-gpg_encrypt_help () {
+gpg_encrypt_help() {
     echo "Usage: gpgr encrypt <receiver> <filename>"
 }
-gpg_encrypt () {
+gpg_encrypt() {
     receiver=$1
     filename=$2
 
@@ -25,7 +27,7 @@ gpg_encrypt () {
         exit 1
     elif [ -z "$filename" ]; then
         echo "Missing filename"
-        gpg_encrypt_help 
+        gpg_encrypt_help
         exit 1
     fi
 
@@ -34,15 +36,15 @@ gpg_encrypt () {
     eval $run
 }
 
-gpg_decrypt_help () {
+gpg_decrypt_help() {
     echo "Usage: gpgr decrypt <filename>"
 }
-gpg_decrypt () {
+gpg_decrypt() {
     filename=$1
 
     if [ -z "$filename" ]; then
         echo "Missing filename"
-        gpg_decrypt_help 
+        gpg_decrypt_help
         exit 1
     fi
 
@@ -51,20 +53,20 @@ gpg_decrypt () {
     eval $run
 }
 
-gpg_list () {
+gpg_list() {
     run="gpg --list-keys"
     eval $run
 }
 
-gpg_import_help () {
+gpg_import_help() {
     echo "Usage: gpgr import <filename>"
 }
-gpg_import () {
+gpg_import() {
     filename=$1
 
     if [ -z "$filename" ]; then
         echo "Missing filename"
-        gpg_import_help 
+        gpg_import_help
         exit 1
     fi
 
@@ -73,7 +75,7 @@ gpg_import () {
     eval $run
 }
 
-gpg_export_help () {
+gpg_export_help() {
     echo "Usage: gpgr export <name> <filename>"
 }
 gpg_export() {
@@ -82,7 +84,7 @@ gpg_export() {
 
     if [ -z "$name" ]; then
         echo "Missing name"
-        gpg_export_help 
+        gpg_export_help
         exit 1
     fi
 
@@ -90,13 +92,13 @@ gpg_export() {
         run="gpg --export -a \"$name\""
     else
         run="gpg --export -a \"$name\" > $filename"
-    fi 
+    fi
 
     echo $run
     eval $run
 }
 
-gpg_fingerprint_help () {
+gpg_fingerprint_help() {
     echo "Usage: gpgr fingerprint <name>"
 }
 gpg_fingerprint() {
@@ -104,7 +106,7 @@ gpg_fingerprint() {
 
     if [ -z "$name" ]; then
         echo "Missing name"
-        gpg_fingerprint_help 
+        gpg_fingerprint_help
         exit 1
     fi
 
