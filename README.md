@@ -1,4 +1,4 @@
-# Cronkib's Helpful Utilities
+# Helpful Utilities
 
 ## GPG-Reduce
 
