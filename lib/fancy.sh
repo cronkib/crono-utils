@@ -44,11 +44,6 @@ fancy_print() {
         value=$1
     fi
 
-    if [ -z $style ] && [ -z $color ] && [ -z $value ]; then
-        fancy_print_help
-        return 1
-    fi
-
     fancy="${FANCY_TEMPLATE//STYLE/$style}"
     fancy="${fancy//COLOR/$color}"
     fancy="${fancy//VALUE/$value}"
