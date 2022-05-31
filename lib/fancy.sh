@@ -5,7 +5,7 @@
 # 
 FANCY_TEMPLATE="\e[STYLECOLORmVALUE\e[0m"
 
-declare -A colors=( 
+declare -A FANCY_COLORS=( 
     ["red"]=";31" 
     ["green"]=";32"
     ["yellow"]=";33"
@@ -16,7 +16,7 @@ declare -A colors=(
     ["none"]=""
 )
 
-declare -A styles=(
+declare -A FANCY_STYLES=(
     ["normal"]="0"
     ["bold"]="1"
     ["underline"]="4"
@@ -25,22 +25,22 @@ declare -A styles=(
 
 fancy_print() {
     if [ "$#" -eq 3 ]; then
-        style="${styles[$1]}"
-        color="${colors[$2]}"
+        style="${FANCY_STYLES[$1]}"
+        color="${FANCY_COLORS[$2]}"
         value=$3
     elif [ "$#" -eq 2 ]; then
-        style="${styles[$1]}"
-        color="${colors[none]}"
+        style="${FANCY_STYLES[$1]}"
+        color="${FANCY_COLORS[none]}"
 
         if [ -z "$style" ]; then
-            style="${styles[normal]}"
-            color="${colors[$1]}"
+            style="${FANCY_STYLES[normal]}"
+            color="${FANCY_COLORS[$1]}"
         fi
 
         value=$2
     elif [ "$#" -eq 1 ]; then
-        style="${styles[normal]}"
-        color="${colors[none]}"
+        style="${FANCY_STYLES[normal]}"
+        color="${FANCY_COLORS[none]}"
         value=$1
     fi
 
